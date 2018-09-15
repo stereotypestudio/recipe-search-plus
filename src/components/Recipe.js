@@ -19,21 +19,33 @@ class Recipe extends React.Component {
     render() { 
         const recipe = this.state.activeRecipe;
         return ( 
-            <div className = "container">
-              { this.state.activeRecipe.length !== 0 &&
-                  <div className = "active-recipe">
-                    <img className = "active-recipe__img" src = {recipe.image_url} alt = {recipe.title} />
-                    <h3 className = "active-recipe__title">{recipe.title}</h3>
-                    <h4 className = "active-recipe__publisher">Pubisher: <span>{recipe.publisher}</span></h4>
-                    <p className = "active-recipe__website">
-                        Website: <span><a href = {recipe.publisher_url}>{recipe.publisher_url}</a></span>
-                    </p>
-                    <button className = "active-recipe__button">
-                        <Link to = "/">Go Home</Link>
-                    </button>
-                </div>
+            <div>
+                <header className="App-header">
+                    <h1 className="App-title">Recipe Search</h1>
+                </header>
+                <div className = "container">
+                { this.state.activeRecipe.length !== 0 &&
+                    <div >
+                        <div className = "row">
+                            <div className = "col-md-5">
+                                <img className = "active-recipe__img" src = {recipe.image_url} alt = {recipe.title} />
+                            </div>
+                            <div className = "col-md-7">
+                                <h3 className = "active-recipe__title">{recipe.title}</h3>
+                                <h4 className = "active-recipe__publisher">Pubisher: <span>{recipe.publisher}</span></h4>
+                                <p className = "active-recipe__website">
+                                    Website: <span><a href = {recipe.publisher_url}>{recipe.publisher_url}</a></span>
+                                </p>
+                                <p className = "active-recipe__website">Recipe page: <span><a href = {recipe.source_url}>Details</a></span></p>
+                                <button className = "active-recipe__button">
+                                    <Link to = "/">Go Home</Link>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-              }
+                }
+                </div>
             </div>
          );
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from './components/Form';
 import Recipes from './components/Recipes';
+import LoginButton from './components/LoginButton';
 
 const API_KEY = "9f75fe27c7598a4a4bde827ad8f31266";
 
@@ -34,11 +35,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
+      <div>
+        <header className="App-header" >
           <h1 className="App-title">Recipe Search</h1>
+          <LoginButton />
         </header>
-        <Form getRecipe = {this.getRecipe}/>
+        <div style = {{margin: "0 auto", textAlign: "center"}}>
+        <Form  getRecipe = {this.getRecipe} />
+        </div>
+        
         <Recipes recipes = {this.state.recipes} />
       </div>
     );
